@@ -1,0 +1,320 @@
+@use 'variables' as v;
+.header{
+    height: 75px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+    border:1px solid;
+    .options-features-desk, .options-company-desk{
+        display: none;
+    }
+    .background-black-modal{
+        // display: none;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 550;
+        transform: translate(100%,0);
+        transition: transform .5s;
+        
+        .background-white-modal{
+            width: 240px;
+            height: 100%;
+            background-color: rgb(255, 255, 255);
+            position: absolute;
+            top: 0;           
+            right: 0;
+            bottom: 0;
+            padding: 22px 25px;
+            .close-icon{
+                margin-bottom: 32px;
+                float: right;    
+                cursor:pointer;            
+            }
+            .options-modal{
+                color: v.$Medium-Gray;
+                list-style: none;                
+                clear: both;             
+
+                li /*content-click*/{
+                    display: flex;
+                    gap: 10px;              
+                    align-items: center;
+                    margin-bottom: 25px;
+                    p,img{
+                        cursor:pointer;
+                    }
+                }
+                .arrow .img-arrow{
+                    transform: rotate(180deg);                    
+                }
+                .img-arrow{
+                    transition: transform .3s;
+                }
+                .options-features{
+                    width: 120px;
+                    height: 0px;
+                    margin: 0 20px;
+                    overflow: hidden;
+                    transition: height .5s;
+                    li{
+                        .icons-lists{
+                            width: 18px;                            
+                        }
+                    }
+                }
+                .options-company{
+                    height: 0;
+                    overflow: hidden;
+                    margin: 0 20px;
+                    transition: height .5s;
+                }
+            }
+            .login-register-modal{
+                margin-top: 37px;
+                .login-modal{
+                    text-align: center;
+                    font-size: 15px;
+                    color: v.$Medium-Gray;
+                    cursor: pointer;
+                    transition: all .4s;
+                    &:hover{
+                        color:black;
+                    }                   
+                }
+                .btn-register-modal{
+                    width: 100%;
+                    height: 42px;
+                    margin-top: 15px;
+                    border-radius: 15px;
+                    background-color: transparent;
+                    font-family: 'Epilogue', sans-serif;
+                    font-size: 14px;
+                    color: v.$Medium-Gray;
+                    border:2px solid v.$Medium-Gray;
+                    cursor:pointer;
+                    transition: all .4s;
+                }
+                .btn-register-modal:hover{
+                    color: black;
+                    border-color: black;
+                }
+            }
+
+            
+        }
+    }
+    .background-black-modal.test{
+        transform: translate(0,0);
+    }
+    .login-register{
+        display: none;
+    }
+    .menu-icon{
+        width: 35px;
+        cursor:pointer;
+    }
+    .options{
+        display: none;
+    }
+    @media(min-width: 1440px){
+        height: 85px;
+        padding: 0 40px;
+        .menu-container{
+            width: 530px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+    
+            .options{
+                display: flex;
+                align-items: center;
+                gap: 37px;              
+                list-style: none;
+                color: v.$Medium-Gray;
+                .content-click-desk{
+                    img{
+                        margin: 1px; 
+                        transform: rotate(180deg);
+                    }            
+                }
+                .arrowDesk img{
+                    transform: rotate(0deg);
+                }
+                img{
+                    transition: transform .3s;
+                }
+            }
+        }
+        .options-features-desk{   
+            display: flex;         
+            width: 153px;
+            height: 160px;
+            padding: 23px;
+            position: absolute;
+            top: 69px;
+            left: 103px;
+            border-radius:10px;
+            box-shadow: 0 0 30px 9px #ebe8e8c9;           
+            flex-direction: column;
+            justify-content: space-between;
+            color:v.$Medium-Gray;
+            li{
+                display: flex;
+                gap: 15px;
+                p{
+                    font-size: 14px;
+                }
+            }            
+        }
+        .showFeatures.options-features-desk{
+            display: none;
+        }
+        .options-features-desk{
+            transition: display 2s;
+        }
+        
+        .options-company-desk{
+            width: 116px;
+            height: 128px;
+            padding: 23px;
+            position: absolute;
+            top: 69px;
+            left: 295px;
+            border-radius:10px;
+            box-shadow: 0 0 30px 9px #ebe8e8c9;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 10px;
+            li{
+                font-size: 14px;
+                list-style: none;
+                color:v.$Medium-Gray;                
+            }
+        }
+        .showFeatures.options-company-desk{
+            display: none;
+        }
+        .background-black-modal{
+            display: none;
+        }
+        .login-register{
+            width: 215px;
+            height: 85px;
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            justify-content: space-between;          
+            
+            .login{
+                width: 100px;
+                text-align: center;
+                color: v.$Medium-Gray;
+            }
+
+            .btn-register{
+                width: 140px;
+                height: 50px;
+                border-radius: 15px;
+                background-color: transparent;
+                font-family: 'Epilogue', sans-serif;
+                font-size: 16px;
+                color: v.$Medium-Gray;
+                border: 1px solid v.$Almost-Black;
+            }
+        }
+        .menu-icon{
+            display: none;
+        }        
+    }
+}
+.content{
+    .img-main{
+        background-image: url('/images/image-hero-mobile.png');
+        height: 280px;
+        width: 375px;
+        background-size: cover;
+    }
+    .content-text{
+        margin: 50px 15px;
+        .title{
+            font-size: 35px;
+        }
+        .description{
+            margin: 19px 0 25px;
+            text-align: center;
+            line-height: 1.6;
+        }
+        .btn-learn{
+            width: 135px;
+            height: 50px;
+            display: block;
+            background-color: black;
+            color: white;
+            border-radius: 12px;
+            border: none;
+            font-size: 16px;  
+            font-family: 'Epilogue', sans-serif; 
+            margin: 0 auto 43px;
+        }
+        .logos-container{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            
+            .img-logos{
+              width:70px;
+            }
+        }
+    }
+    @media(min-width: 1440px){
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        .img-main{
+            background-image: url('/images/image-hero-desktop.png');
+            width: 485px;
+            height: 650px;
+            margin: 40px 120px 115px;
+        }
+        .content-text{
+            width: 530px;       
+            margin: 148px 0 130px 160px;
+            .title{
+                font-size: 80px;
+            }     
+            .description{
+                text-align: left;
+                margin: 46px 0 50px;
+                font-size: 20px;
+                line-height: 1.4;
+                color: v.$Medium-Gray;
+            }
+            .btn-learn{
+                height: 56px;
+                width: 165px;
+                margin: 0 0 105px;
+                font-size: 18px;
+                font-weight: 700;                
+                &:hover{
+                    background-color: white;
+                    color:black;
+                    cursor: pointer;
+                    // transition: all .4s;
+                }
+            }
+            .logos-container{
+                .img-logos{
+                    width: 100px;
+                }
+            }
+        }
+    }
+}
